@@ -2,6 +2,8 @@ FROM debian:jessie
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+# some comment
+
 RUN apt-get update && apt-get install --quiet --yes --force-yes --no-install-recommends \
         apt-utils \
         ca-certificates \
