@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install --quiet --yes --force-yes --no-install-rec
         git \
         grep \
         lynx \
-        bz2 \
+        bzip2 \
         openssh-client \
         rsync \
         software-properties-common \
@@ -20,14 +20,14 @@ RUN apt-get update && apt-get install --quiet --yes --force-yes --no-install-rec
         zip \
         && apt-get clean -qq \
         && apt-get autoremove -qq \
-        && ( -rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* >/dev/null 2>&1 || true ) \
+        && ( -rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* >/dev/null 2>&1 || true )
 
 RUN wget --no-clobber --quiet https://www.dotdeb.org/dotdeb.gpg \
         && apt-key add dotdeb.gpg \
         && apt-get update \
-        && rm dotdeb.gpg
+        && rm dotdeb.gpg \
         && echo 'deb http://packages.dotdeb.org jessie all' > /etc/apt/sources.list.d/dotdeb.list \
-        && echo 'deb-src http://packages.dotdeb.org jessie all' >> /etc/apt/sources.list.d/dotdeb.list \
+        && echo 'deb-src http://packages.dotdeb.org jessie all' >> /etc/apt/sources.list.d/dotdeb.list
 
 RUN apt-get update && apt-get install --quiet --yes --force-yes --no-install-recommends \
         php7.0-apcu \
